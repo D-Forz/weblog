@@ -7,6 +7,10 @@ class PostsController < ApplicationController
   }
 
   def index
-    @posts = POSTS
+    @posts = if params[:search].present?
+               POSTS.select { |id, post| post[:title].downcase.include?(params[:search].downcase) }
+             else
+               POSTS
+             end
   end
 end
