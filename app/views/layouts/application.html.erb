@@ -12,5 +12,19 @@
 
   <body>
     <%= yield %>
+    <footer>
+      <p>
+      <a href="<%= root_path %> ">Home</a>
+      </p>
+      <p>
+      <a href="<%= posts_path %> ">Posts</a>
+      </p>
+      <p>
+        <a href="<%= about_path %> ">About</a>
+      </p>
+      <p>
+        <a href="<%= contact_path %> ">Contact</a>
+      </p>
+    </footer>
   </body>
 </html>
