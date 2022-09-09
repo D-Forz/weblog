@@ -13,9 +13,7 @@
   <body>
     <%= yield %>
     <footer>
-      <p>
-      <a href="<%= root_path %> ">Home</a>
-      </p>
+    <%= link_to "Home", root_path %>
       <p>
       <a href="<%= posts_path %> ">Posts</a>
       </p>
