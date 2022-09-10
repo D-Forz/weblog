@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   #   '3' => { title: 'Third Post', body: 'This is the third post' }
   # }
 
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     # @posts = if params[:search].present?
     #            POSTS.select { |_id, post| post[:title].downcase.include?(params[:search].downcase) }
@@ -17,7 +19,7 @@ class PostsController < ApplicationController
 
   def show
     # @post = POSTS[params[:id]]
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
   end
 
   def new
@@ -30,22 +32,27 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to post_path(post)
+    redirect_to post_path(@post)
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
     params.require(:post).permit(:title, :body)
   end
