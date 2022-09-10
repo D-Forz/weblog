@@ -3,10 +3,22 @@ Rails.application.routes.draw do
 
   # root
   root 'pages#home'
-  get 'about' => 'pages#about'
-  get 'contact' => 'pages#contact'
-  get 'posts' => 'posts#index'
-  get 'posts/:id' => 'posts#show'
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
+
+  resources :posts
+  # only - except
+  # read
+  # get 'posts', to: 'posts#index', as: :posts
+  # get 'posts/:id', to: 'posts#show', as: :post
+  # # create
+  # get 'posts/new', to: 'posts#new', as: :new_post
+  # post 'posts', to: 'posts#create'
+  # # update
+  # get 'posts/:id/edit', to: 'posts#edit'
+  # patch 'posts/:id', to: 'posts#update'
+  # # delete
+  # delete 'posts/:id', to: 'posts#destroy'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

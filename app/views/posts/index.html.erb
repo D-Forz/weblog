@@ -1,17 +1,17 @@
 
-
-<% categories = ['science', 'technology', 'humanities']  %>
-
 <h2>Posts</h2>
+<ul>
+  <% @posts.each do |post| %>
+   <li><%= link_to post.title, post_path(post) %></li>
+  <% end %>
+</ul>
+
+
+<h2>Test</h2>
+<% categories = ['science', 'technology', 'humanities']  %>
 
 <ul>
   <% categories.each do |category| %>
     <li><%= category.capitalize %></li>
-  <% end %>
-</ul>
-
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post[1][:title] %></li>
   <% end %>
 </ul>
