@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   # }
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  def top
+  end
 
   def index
     # @posts = if params[:search].present?

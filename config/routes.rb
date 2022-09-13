@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
 
-  resources :posts
+  resources :posts do
+    collection do
+      get :top
+    end
+  end
   # only - except
   # read
   # get 'posts', to: 'posts#index', as: :posts
