@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_post
+  before_action :set_post, only: %i[new create]
 
   def new
     @review = Review.new
@@ -8,8 +8,17 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.post = @post
-    @review.save
-    redirect_to post_path(@post)
+    if @review.save
+      redirect_to post_path(@post)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to post_path(@review.post), status: :see_other
   end
 
   private

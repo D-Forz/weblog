@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :author
     end
   end
+  resources :reviews, only: %i[destroy]
   # only - except
   # read
   # get 'posts', to: 'posts#index', as: :posts
