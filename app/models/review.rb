@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :post
   # allows us to use: @review.restaurant
+  belongs_to :post
+
+  validates :content, presence: true
 end

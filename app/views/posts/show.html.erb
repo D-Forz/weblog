@@ -1,5 +1,15 @@
-<h2><%=@post[:title]%></h2>
-<p><%=@post[:body]%></p>
+<div>
+  <h2><%=@post[:title]%></h2>
+  <p><%=@post[:body]%></p>
+</div>
+<div>
+  <h3>Reviews</h3>
+  <ul>
+    <% @post.reviews.each do |review| %>
+      <li><%= review.content %></li>
+    <% end %>
+  </ul>
+</div>
 <div>
   <%= link_to "Author", author_post_path %> | <%= link_to "Create a new review", new_post_review_path(@post) %>
 </div>
