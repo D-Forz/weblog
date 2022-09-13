@@ -7,8 +7,14 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
 
   resources :posts do
+    resources :reviews, only: %i[new create]
+
     collection do
       get :top
+    end
+
+    member do
+      get :author
     end
   end
   # only - except

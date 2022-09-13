@@ -1,1 +1,6 @@
-H.
+<h2>Top Posts</h2>
+<ul>
+<% @posts.each do |post| %>
+<li><%= post.title %> <%= post.rating %></li>
+<% end %>
+</ul>

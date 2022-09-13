@@ -1,0 +1,4 @@
+<%= form_with(model: [@post, @review])  do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "Submit Review" %>
+<% end %>

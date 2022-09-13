@@ -15,7 +15,10 @@
     <footer>
     <%= link_to "Home", root_path %>
       <p>
-      <a href="<%= posts_path %> ">Posts</a>
+      <%= link_to "Posts", posts_path %>
+      </p>
+      <p>
+      <%= link_to "Top Posts", top_posts_path %>
       </p>
       <p>
         <a href="<%= about_path %> ">About</a>

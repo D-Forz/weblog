@@ -6,8 +6,14 @@ class PostsController < ApplicationController
   #   '3' => { title: 'Third Post', body: 'This is the third post' }
   # }
 
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: %i[show edit update destroy author]
+
   def top
+    @posts = Post.where(rating: 5)
+  end
+
+  def author
+    @author = @post.author
   end
 
   def index

@@ -5,14 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 Post.delete_all
 puts 'Cleaning DB...'
 
 20.times do
-  Post.new(
+  post = Post.create(
     title: Faker::Movie.title,
     body: Faker::Movie.quote,
-    comment: Faker::Quote.famous_last_words
+    rating: rand(1..5),
+    author: ["Jaime", "Albert", "Siri", "Noria"].sample
   )
+  puts "Creating new post with id: #{post.id}"
 end
-puts 'Finish'
+puts 'Finished'
